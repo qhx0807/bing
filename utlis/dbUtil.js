@@ -3,27 +3,6 @@ var dbConfig = require('../config/db')
 
 var pool = mysql.createPool(dbConfig.bing)
 
-// var actionSql = function (sql, callback) {
-//   try {
-//     pool.getConnection(function (err, connection) {
-//       connection.query(sql, function (err, rows) {
-//         connection.release()
-//         if (!err) {
-//           callback && callback(rows)
-//         } else {
-//           console.log(err)
-//         }
-//       })
-//     })
-//   } catch (error) {
-//     console.log(error)
-//     console.log(sql)
-//     callback && callback([])
-//   }
-// }
-
-// module.exports = actionSql
-
 module.exports = {
   /**
    * 执行sql语句
@@ -79,7 +58,7 @@ module.exports = {
       keys.push(k)
       vals.push(params[k])
     }
-    var spl = `insert to ${table} ( ${keys.join(',')} ) values( ${vals.join(',')} )`
+    var sql = 'insert into ' + table + '(' + keys.join(',') + ') values("' + vals.join('","') + '")'
     module.exports.sqlQuery(sql, callback)
   }
 

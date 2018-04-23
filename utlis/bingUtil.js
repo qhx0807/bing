@@ -14,7 +14,7 @@ module.exports = {
   fetchDailyPic: function (options, callback) {
     var opts = {
       idx: 0,
-      n: 2,
+      n: 1,
       format: 'js'
     }
     if (Object.prototype.toString.call(options) == '[object Object]') {
