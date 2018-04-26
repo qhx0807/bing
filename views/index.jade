@@ -1,5 +1,8 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+include ./head.jade
+doctype html
+html(lang="en")
+  +header
+  title="必应壁纸"
+  link(rel="stylesheet", href="https://unpkg.com/progressively/dist/progressively.min.css")
+body
+  h1 Jade - node template engine
