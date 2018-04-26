@@ -37,6 +37,7 @@ module.exports = {
                 fullstartdate: rows.fullstartdate,
                 enddate: rows.enddate,
                 url: /(http|https)\:\/\//gi.test(data.url) ? data.url : 'http://s.cn.bing.net' + rows.url,
+                tmburl: 'http://s.cn.bing.net' + rows.url.replace('1920x1080', '800x480'),
                 urlbase: rows.urlbase,
                 copyright: rows.copyright,
                 copyrightlink: rows.copyrightlink,

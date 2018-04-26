@@ -80,7 +80,7 @@ module.exports = {
     } else if (Object.prototype.toString.call(params) === '[objcet String]') {
         sql += ' where ' + params
     }
-    module.exports.commonQuery(sql, callback)
+    module.exports.sqlQuery(sql, callback)
   },
 
   /**
