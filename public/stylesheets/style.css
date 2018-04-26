@@ -1,8 +1,115 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face {font-family: 'webfont';
+  src: url('//at.alicdn.com/t/webfont_brz6r218dg28d7vi.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/webfont_brz6r218dg28d7vi.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/webfont_brz6r218dg28d7vi.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/webfont_brz6r218dg28d7vi.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/webfont_brz6r218dg28d7vi.svg#思源黑体-细') format('svg'); /* iOS 4.1- */
 }
-
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* transition: all .2s linear; */
+  /* -webkit-transition: all .2s linear; */
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: grayscale;
+  /* font-family: "webfont"; */
+}
+html{
+  font-size: 32px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 a {
   color: #00B7FF;
+}
+html,body{
+  width: 100%;
+  overflow-x: hidden;
+}
+.wrap{
+  width: 800px;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .wrap{
+    width: 100%;
+  }
+}
+
+.title{
+  text-align: center;
+  color: #42b983;
+  font-size: .45rem;
+  padding: 30px 0 0px 0;
+  vertical-align: baseline;
+}
+
+.title i{
+  font-size: .45rem;
+  color: red;
+}
+.content{
+  padding: 10px 0px;
+}
+.content .item{
+  margin: 26px auto;
+  border-bottom: 1px solid #adecd0;
+}
+.content .item img{
+  width: 100%;
+  height: auto;
+}
+.content .item .desc{
+  position: relative;
+  padding: 6px 15px 25px 15px;
+}
+.desc .mask{
+  position: absolute;
+  top: -42px;
+  height: 40px;
+  left: 0;
+  right: 0;
+  color: #fff;
+  font-size: .34rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  line-height: 16px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+}
+.item-title{
+  color: #42b983;
+  font-size: .4rem;
+  font-weight: 600;
+  padding: 4px 0;
+}
+.item-wz{
+  color: #42b983;
+  font-size: .38rem;
+  padding: 2px 0;
+}
+.item-desc{
+  color: #70c49e;
+  font-size: .38rem;
+  padding: 2px 0;
+}
+.page{
+  text-align: center;
+  padding: 20px;
+}
+.page a{
+  margin: 0 13px;
+  color: #0C8484;
+}
+.page span{
+  color: #0C8484;
+}
+
+footer{
+  text-align: center;
+  padding: 30px;
+  color: #0C8484;
+  font-size: .4rem;
 }
