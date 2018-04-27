@@ -5,10 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var schedule = require('node-schedule');
 
+
+var bingUtil = require('./utlis/bingUtil')
+var dbUtil = require('./utlis/dbUtil')
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testRouter = require('./routes/test');
-var picRouter = require('./routes//picture');
+var picRouter = require('./routes/picture');
+var photoRouter = require('./routes/photo');
 
 var app = express();
 
@@ -26,6 +31,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', testRouter);
 app.use('/', picRouter);
+app.use('/', photoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -37,9 +43,18 @@ var rule = new schedule.RecurrenceRule()
 rule.hour = 8;
 rule.minute = 0;
 rule.second = 0;
-// var j = schedule.scheduleJob(rule, function(){
-//   console.log('现在时间：',new Date());
-// });
+var j = schedule.scheduleJob(rule, function(){
+  var opts = {}
+  bingUtil.fetchDailyPic(opts, function (data) {
+    dbUtil.insert('picture', data, function(result){
+      if (result.insertId){
+        console.log(new Date().toLocaleString()+ '今日已更新' + result.insertId)
+      }else{
+        console.log(new Date().toLocaleString()+ '更新失败')
+      }
+    })
+  })
+});
 
 // error handler
 app.use(function(err, req, res, next) {
