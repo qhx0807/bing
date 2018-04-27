@@ -1,0 +1,63 @@
+html,body{
+  height: 100%;
+  width: 100%;
+}
+
+.box{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.box img{
+}
+.detail{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  -webkit-filter: blur(30px);
+  filter: blur(0px);
+}
+
+.photo-desc{
+  position: absolute;
+  height: 3.5rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .5);
+  color: #fff;
+  font-size: .36rem;
+  padding: 4px 12px;
+  overflow: hidden;
+}
+.photo-tit{
+  font-size: .37rem;
+}
+.photo-desc p{
+  padding: 2px 0;
+}
+.download{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 2rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, .5);
+  border-radius: 8px;
+  text-align: center;
+  line-height: 1rem;
+  font-size: .5rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, .5);
+}
+.download:hover{
+  border-color: #fff;
+  color: #fff;
+}
