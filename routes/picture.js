@@ -13,7 +13,6 @@ router.get('/bing/:idx', function (req, res, next) {
       }else{
         res.json({error: 'error'})
       }
-
     })
   })
 })
