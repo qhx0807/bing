@@ -35,5 +35,4 @@ app/
 
 config.development.js
 adapter.development.js
-
-config/
+src/config/dbconfig.js
