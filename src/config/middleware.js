@@ -1,5 +1,6 @@
-const path = require('path')
-const isDev = think.env === 'development'
+const path = require('path');
+const isDev = think.env === 'development';
+const cors = require('@koa/cors');
 
 module.exports = [
   {
@@ -35,6 +36,10 @@ module.exports = [
     handle: 'router',
     options: {}
   },
+  {
+    handle: cors,
+    options: {}
+  },
   'logic',
   'controller'
-]
+];
