@@ -64,4 +64,15 @@ module.exports = class extends Base {
     let data = await bingWallpaperModel.order('id DESC').page(page).countSelect({ limit: size })
     return this.success(data)
   }
+
+  async getbydateAction () {
+    const bingWallpaperModel = think.model('bing_wallpaper')
+    const date = this.get('d') || think.datetime(new Date(), 'YYYY-MM-DD')
+    let data = await bingWallpaperModel.where({ date: date }).select()
+    if (!think.isEmpty(data)) {
+      return this.success(data[0])
+    } else {
+      return this.fail('none data')
+    }
+  }
 }

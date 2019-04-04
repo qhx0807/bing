@@ -1,12 +1,11 @@
-const fileCache = require('think-cache-file');
-const pug = require('think-view-pug');
-const fileSession = require('think-session-file');
-const JWTSession = require('think-session-jwt');
-const mysql = require('think-model-mysql');
-const {Console, File, DateFile} = require('think-logger3');
-const path = require('path');
+const fileCache = require('think-cache-file')
+const pug = require('think-view-pug')
+const JWTSession = require('think-session-jwt')
+const mysql = require('think-model-mysql')
+const {Console, File, DateFile} = require('think-logger3')
+const path = require('path')
 const dbConfig = require('./db.config')
-const isDev = think.env === 'development';
+const isDev = think.env === 'development'
 
 /**
  * cache adapter config
@@ -23,7 +22,7 @@ exports.cache = {
     pathDepth: 1,
     gcInterval: 24 * 60 * 60 * 1000 // gc interval
   }
-};
+}
 
 /**
  * model adapter config
@@ -40,7 +39,7 @@ exports.model = {
     handle: mysql,
     ...dbConfig
   }
-};
+}
 
 /**
  * session adapter config
@@ -75,7 +74,7 @@ exports.session = {
       console.log("-----------------error---------------------error------------------")
     }
   }
-};
+}
 
 /**
  * view adapter config
@@ -88,10 +87,10 @@ exports.view = {
     sep: '_',
     extname: '.pug'
   },
-  nunjucks: {
+  pug: {
     handle: pug
   }
-};
+}
 
 /**
  * logger adapter config
