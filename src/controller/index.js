@@ -1,19 +1,19 @@
-const Base = require('./base.js');
+const Base = require('./base.js')
 
 module.exports = class extends Base {
-  indexAction() {
-    return this.display();
+  async indexAction () {
+    const page = this.get('p') || 1
+    const bingWallpaperModel = think.model('bing_wallpaper')
+    const data = await bingWallpaperModel.order('id DESC').page(page).countSelect()
+    const obj = {
+      data: data.data,
+      currentPage: data.currentPage,
+      totalPages: data.totalPages,
+      pageSize: data.pageSize,
+      Prev: data.currentPage === 1 ? 1 : data.currentPage - 1,
+      Next: data.currentPage === data.totalPages ? data.totalPages : data.currentPage + 1
+    }
+    this.assign(obj)
+    return this.display()
   }
-  async testAction () {
-    let d = await this.model('qn_account').select()
-    this.success(d)
-  }
-  async sessAction () {
-    let token = await this.session('name1', '12312312321')
-    this.success(token)
-  }
-  async sess1Action () {
-    let d = await this.session('name')
-    this.success(d)
-  }
-};
+}

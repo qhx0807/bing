@@ -1,0 +1,48 @@
+include ./head.jade
+doctype html
+html(lang="en")
+  +header
+  title for Léa | #{Data.title}
+  link(rel="stylesheet", href="/stylesheets/photo.css")
+body
+  div.box
+    div.detail
+    a(href="#{Data.url}",target="view_window", title="下载").download 下载
+    img(src="#{Data.tmburl}", alt="#{Data.title}", class="target progressive__img progressive--not-loaded", data-progressive="#{Data.url}")
+    div.photo-desc
+      - var y = Data.enddate.substring(0,4)
+      - var m = Data.enddate.substring(4,6)
+      - var d = Data.enddate.substring(6,8)
+      p.photo-tit #{Data.title}
+      p #{Data.copyright}
+      p #{Data.continent}, #{Data.attribute}
+      p #{y}-#{m}-#{d}
+  script(src="http://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js")
+  script(type="text/javascript").
+    $(function() {
+      var i=0;
+      var img = $('.target');
+      var mini = img.attr('src');
+      var mark = $('.detail');
+      mark.css({
+        'background-image': 'url('+mini+')'
+      });
+      progressively.init({
+        delay: 20,
+        throttle: 300,
+        onLoad: function(elem) {
+        },
+        onLoadComplete: function() {
+          i++;
+          if(i>2){
+            var big = img.attr('src');
+            mark.css({
+                backgroundImage: 'url('+big+')',
+                filter: 'blur(0)'
+            });
+            img.remove();
+          }
+        }
+      });
+    });
+

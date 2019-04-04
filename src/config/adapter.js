@@ -1,5 +1,5 @@
 const fileCache = require('think-cache-file');
-const nunjucks = require('think-view-nunjucks');
+const pug = require('think-view-pug');
 const fileSession = require('think-session-file');
 const JWTSession = require('think-session-jwt');
 const mysql = require('think-model-mysql');
@@ -82,14 +82,14 @@ exports.session = {
  * @type {Object}
  */
 exports.view = {
-  type: 'nunjucks',
+  type: 'pug',
   common: {
     viewPath: path.join(think.ROOT_PATH, 'view'),
     sep: '_',
-    extname: '.html'
+    extname: '.pug'
   },
   nunjucks: {
-    handle: nunjucks
+    handle: pug
   }
 };
 

@@ -1,5 +1,5 @@
 {
-  "name": "qiniu-api",
+  "name": "bing",
   "description": "application created by thinkjs",
   "version": "1.0.0",
   "author": "qhx0807 <820240134@qq.com>",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@koa/cors": "^2.2.2",
+    "cheerio": "^1.0.0-rc.2",
     "qiniu": "^7.2.1",
     "think-cache": "^1.0.0",
     "think-cache-file": "^1.0.8",
@@ -23,6 +24,7 @@
     "think-session-jwt": "^1.1.0",
     "think-view": "^1.0.0",
     "think-view-nunjucks": "^1.0.1",
+    "think-view-pug": "^1.0.7",
     "thinkjs": "^3.0.0"
   },
   "devDependencies": {
@@ -40,12 +42,12 @@
   "readmeFilename": "README.md",
   "thinkjs": {
     "metadata": {
-      "name": "qiniu-api",
+      "name": "bing",
       "description": "application created by thinkjs",
       "author": "qhx0807 <820240134@qq.com>",
       "babel": false
     },
-    "projectName": "qiniu-api",
+    "projectName": "bing",
     "template": "C:\\Users\\82024\\AppData\\Roaming\\npm\\node_modules\\think-cli\\default_template",
     "clone": false,
     "isMultiModule": false

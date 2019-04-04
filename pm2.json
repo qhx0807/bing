@@ -1,8 +1,8 @@
 {
   "apps": [{
-    "name": "qiniu-api",
+    "name": "bing",
     "script": "production.js",
-    "cwd": "/www/wwwroot/qiniu-api",
+    "cwd": "/www/wwwroot/bing",
     "exec_mode": "fork",
     "max_memory_restart": "1G",
     "autorestart": true,
