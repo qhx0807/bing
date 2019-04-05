@@ -29,20 +29,21 @@ module.exports = class extends Base {
   }
 
   async dailyAction () {
-    if (!this.isCli) {
-      return this.fail('request is not in Cli')
-    }
+    // if (!this.isCli) {
+    //   return this.fail('request is not in Cli')
+    // }
     const bingWallpaperModel = think.model('bing_wallpaper')
     const bingService = think.service('bing-wallpaper')
     const dailyData = await bingService.dailyImage()
     const datestr = think.datetime(new Date(), 'YYYY-MM-DD')
     const story = await bingService.bingDailyStory(dailyData.href)
     const obj = Object.assign(dailyData, story)
-    if (obj.date === datestr) {
+    const dbstr = await bingWallpaperModel.where({ date: obj.date }).select()
+    if (dbstr.length === 0) {
       let insertId = await bingWallpaperModel.add(obj)
       return this.success(insertId)
     } else {
-      return this.fail()
+      return this.fail('is exit')
     }
   }
 
