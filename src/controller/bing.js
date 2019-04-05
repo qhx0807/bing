@@ -47,22 +47,10 @@ module.exports = class extends Base {
     }
   }
 
-  async getimgAction () {
-    const dateStr = this.get('date') || think.datetime(new Date(), 'YYYY-MM-DD')
-    const bingWallpaperModel = think.model('bing_wallpaper')
-    const result = await bingWallpaperModel.where({ date: dateStr }).select()
-    if (!think.isEmpty(result)) {
-      return this.success(result[0])
-    } else {
-      return this.fail()
-    }
-  }
-
   async bingimgsAction () {
     const bingWallpaperModel = think.model('bing_wallpaper')
     const page = this.get('p') || 1
-    const size = this.get('s') || 10
-    let data = await bingWallpaperModel.order('id DESC').page(page).countSelect({ limit: size })
+    let data = await bingWallpaperModel.order('id DESC').page(page).countSelect()
     return this.success(data)
   }
 
@@ -76,4 +64,5 @@ module.exports = class extends Base {
       return this.fail('none data')
     }
   }
+
 }

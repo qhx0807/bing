@@ -1,22 +1,7 @@
+# 获取必应每日一图 Api
 
-Application created by [ThinkJS](http://www.thinkjs.org)
-
-## Install dependencies
-
-```
-npm install
-```
-
-## Start server
-
-```
-npm start
-```
-
-## Deploy with pm2
-
-Use pm2 to deploy app on production enviroment.
-
-```
-pm2 startOrReload pm2.json
-```
+|  地址   |  说明   |
+| --- | --- |
+|   `/bing/daily`  |  获取每日图片信息，每天自动执行   |
+|   `/bing/getbydate?d=xx`  |  获取指定日期的数据   |
+|   `/bing/bingimgs?p=1`  |  分页查询，每页10条   |
